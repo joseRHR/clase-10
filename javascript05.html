@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript / ejemplo 05</title>
+    <style>
+        .colorB{
+            background-color: rgb(32, 158, 116);
+            padding: 20px;
+            color: black;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer; /*muestra una manito*/
+
+        }
+    </style>
+    <script>
+        function calcular(){
+            let ximp = document.getElementById("txtImp").value;
+            let xigv = 0.18* ximp;
+            document.getElementById("txtIgv").value= xigv ;
+            //mostrar el total a pagar//
+            //parseInt convierte un texto a numero entero//
+            //parseFloat convierte un texto a numero decimal//
+            let txtTotal =parseInt (ximp) + parseInt (xigv);
+            document.getElementById("txtTotal").value= txtTotal ;
+        }
+        function limpiar(){
+            document.getElementById("txtTotal").value= "" ;
+            document.getElementById("txtIgv").value= "";
+            document.getElementById("txtImp").value = "";
+            //ubicar el cursor en txtImp//
+            //focus es un metodo//
+            document.getElementById("txtImp").focus();
+        }
+    </script>
+</head>
+<body>
+    <h1>Factura</h1>
+    <hr>
+    <form action="">
+        <h3>Importe de Factura</h3>
+        <input type="text" name="" id="txtImp" placeholder="Ingrese Importe">
+        <h3>IGV</h3>
+        <input type="text" name="" id="txtIgv" disabled>
+        <br>
+        <h3>total a pagar</h3>
+        <input type="text" name="" id="txtTotal" disabled>
+        <br>
+        <input class="colorB" onclick="calcular()" type="button" value="calcular">
+        <input class="colorB" style="background-color: orange;" onclick="limpiar()" type="button" value="limpiar">
+
+    </form>
+</body>
+</html>
